@@ -1,0 +1,25 @@
+{
+  "name": "Stoldab website",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DjVidiX/NodeStoldab",
+  "authors": [
+    "Marek"
+  ],
+  "description": "website about Stol-dab company",
+  "main": "serwer.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "donice"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
