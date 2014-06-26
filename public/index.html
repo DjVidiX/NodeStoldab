@@ -1,92 +1,65 @@
-<!--<!doctype html>-->
+<!doctype html>
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
 <html ng-app="stoldab">
-    <head>
-        <!-- META -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-        <title>Stoldab</title>
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Optimize mobile viewport -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script src="./bower_components/angular/angular.min.js"></script><!-- load angular -->
+    <title>Stoldab</title>
 
-
-        <script src="./bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-
-        <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <!-- load angular -->
 
 
-        <script src="core.js"></script>
-        <script src="js/controllers/main.js"></script>
-        <script src="js/controllers/menuController.js"></script>
-        <script src="js/services/todos.js"></script>
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
-    </head>
-    <!-- SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION -->
-    <body ng-controller="mainController">
-        <header>
-            <h1> Cos tam</h1>
-        </header>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-        <div class="container" ng-controller="MenuController">
 
-            <div class="btn-group" dropdown is-open="status.isopen">
-                <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
-                    Button dropdown <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
-            </div>
+    <script src="core.js"></script>
+    <script src="js/controllers/todoController.js"></script>
+    <script src="js/controllers/menuController.js"></script>
+    <script src="js/services/todos.js"></script>
 
-            <!-- HEADER AND TODO COUNT -->
-            <div class="jumbotron text-center">
-                <h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
-            </div>
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION -->
 
-            <!-- TODO LIST -->
-            <div id="todo-list" class="row">
-                <div class="col-sm-4 col-sm-offset-4">
+<body>
+    <header>
+        <h1> Cos tam</h1>
+    </header>
 
-                    <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                    <div class="checkbox" ng-repeat="todo in todos">
-                        <label>
-                            <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-                        </label>
-                    </div>
+    <div class="container" ng-controller="MenuController">
 
-                </div>
-            </div>
-
-            <!-- FORM TO CREATE TODOS -->
-            <div id="todo-form" class="row">
-                <div class="col-sm-8 col-sm-offset-2 text-center">
-                    <form>
-                        <div class="form-group">
-
-                            <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                            <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
-                        </div>
-
-                        <!-- createToDo() WILL CREATE NEW TODOS -->
-                        <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="text-center text-muted">
-                <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-                <p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
-            </div>
-
+        <div class="btn-group" dropdown is-open="status.isopen">
+            <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                Actions <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a ui-sref="todo">Todo</a>
+                </li>
+                <li><a ui-sref="pictures">Pictures</a>
+                </li>
+            </ul>
         </div>
 
-    </body>
+        <div ui-view></div>
+    </div>
+
+    <footer>
+        <div class="text-center text-muted">
+            <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
+            <p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
+        </div>
+
+    </footer>
+
+</body>
+
 </html>

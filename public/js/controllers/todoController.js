@@ -1,7 +1,7 @@
-stoldab.controller('mainController', function($scope, $http, Todos) {
+stoldab.controller('TodoController', function($scope, $http, Todos) {
 		$scope.formData = {};
 
-		// GET =====================================================================
+		// GET ====================================================================
 		// when landing on the page, get all todos and show them
 		// use the service to get all the todos
 		Todos.get()
