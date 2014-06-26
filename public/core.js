@@ -1,1 +1,1 @@
-angular.module('scotchTodo', ['todoController', 'todoService', 'pascalprecht.translate']);
+var stoldab = angular.module('stoldab', ['ui.bootstrap', 'ui.router']);

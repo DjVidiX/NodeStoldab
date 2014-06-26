@@ -1,7 +1,4 @@
-angular.module('todoController', [])
-
-	// inject the Todo service factory into our controller
-	.controller('mainController', function($scope, $http, Todos) {
+stoldab.controller('mainController', function($scope, $http, Todos) {
 		$scope.formData = {};
 
 		// GET =====================================================================
