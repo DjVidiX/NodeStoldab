@@ -14,7 +14,8 @@ stoldab.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('pictures', {
         url: "/pictures",
-        templateUrl: "templates/pictures.html"
+        templateUrl: "templates/pictures.html",
+        controller: "PicturesController"
     })
     .state('state2.list', {
         url: "/list",
