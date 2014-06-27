@@ -25,6 +25,7 @@
   "dependencies": {
     "angular": "~1.2.18",
     "angular-bootstrap": "~0.11.0",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "clockpicker": "~0.0.6"
   }
 }

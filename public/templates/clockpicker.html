@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>clockpicker-demo - jsFiddle demo by weareoutman</title>
+
+		<script type='text/javascript' src='//code.jquery.com/jquery-1.11.0.js'></script>
+
+
+		<script type='text/javascript' src="http://weareoutman.github.io/clockpicker/dist/jquery-clockpicker.min.js"></script>
+
+
+
+		<link rel="stylesheet" type="text/css" href="http://weareoutman.github.io/clockpicker/dist/jquery-clockpicker.min.css">
+
+
+		<style type='text/css'>
+			body {
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-size: 14px;
+			}
+			.container {
+				padding: 20px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			<input id="input-a" value="" data-default="20:48">
+			<button type="button" id="button-a">Check the  minutes</button>
+			<button type="button" id="button-b">Check the  hours</button>
+		</div>
+
+
+
+		<script type='text/javascript'>//<![CDATA[
+
+			var input = $('#input-a');
+			input.clockpicker({
+				autoclose: true
+			});
+
+			// Manual operations
+			$('#button-a').click(function(e){
+				// Have to stop propagation here
+				e.stopPropagation();
+				input.clockpicker('show')
+				.clockpicker('toggleView', 'minutes');
+			});
+			$('#button-b').click(function(e){
+				// Have to stop propagation here
+				e.stopPropagation();
+				input.clockpicker('show')
+				.clockpicker('toggleView', 'hours');
+			});
+			//]]>
+
+		</script>
+
+
+	</body>
+
+
+</html>
+

@@ -1,18 +1,32 @@
 // set up ======================================================================
-var express  = require('express');
-var app      = express(); 								// create our app w/ express
-var mongoose = require('mongoose');					// mongoose for mongodb
-var bodyParser = require('body-parser');
+var express  = require('express'),
+	app      = express(),
+	mongoose = require('mongoose'),
+	passport = require('passport'),
+	flash = require('connect-flash'),
 
-var port = process.env.PORT || 3000;
+	morgan = require('morgan'),
+	cookieParser = require('cookie-parser'),
+	bodyParser = require('body-parser'),
+	session = require('express-session'),
 
-var database = require('./config/database');
+	database = require('./config/database'),
+
+	port = process.env.PORT || 3000;
 
 // configuration ===============================================================
 
 mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
 
+app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(bodyParser());
+
+app.use(session({secret: "JestemSobieWesolyRomek"}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 app.use(express.static(__dirname + '/public')); 		// set the static files location /public/img will be /img for users
 
 // pull information from html in POST
@@ -21,7 +35,7 @@ app.use(express.static(__dirname + '/public')); 		// set the static files locati
 //    app.use(express.methodOverride()); 						// simulate DELETE and PUT
 //});
 
-require('./app/routes.js')(app);
+require('./app/routes.js')(app, passport);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);

@@ -37,6 +37,11 @@ module.exports = function (app) {
 
     });
 
+	router.post('/login', function(req, res) {
+
+	})
+
+
     // delete a todo
     router.delete('/todos/:todo_id', function(req, res) {
         Todo.remove({
@@ -55,8 +60,12 @@ module.exports = function (app) {
     });
 
     // application -------------------------------------------------------------
-    router.get('/', function(req, res) {
-        res.sendfile('./public/index.html');
+    router.get('/clock', function(req, res) {
+        res.sendfile('./public/templates/clockpicket.html');
     });
     app.use('/api', router);
+
+	app.get("/", function(req, res) {
+		res.render("index.html")
+	})
 }
